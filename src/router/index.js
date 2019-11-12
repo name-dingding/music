@@ -1,22 +1,56 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+const explore = () => import('../views/explore/explore')
+const profile = () => import(/* webpackChunkName: "about" */ '../views/profile/profile')
+const ground= () => import('@/views/ground/ground')
+const Svideo= () => import('@/views/video/Svideo')
+const songlist= () => import('@/views/songlist/songlist')
+const list= () => import('@/views/list/list')
+const song= () => import('@/views/song/songplay')
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    redirect: 'explore'
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/explore',
+    name: 'explore',
+    component: explore,
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profile
+  },
+  {
+    path: '/ground',
+    name: 'ground',
+    component: ground
+  },
+  {
+    path: '/video',
+    name: 'video',
+    component: Svideo
+  },
+  {
+    path: '/songlist',
+    name: 'songlist',
+    component: songlist
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: list,
+    query: '?id=Id'
+  },
+  {
+    path: '/song',
+    name: 'song',
+    component: song,
+    query: '?songid=id'
   }
 ]
 
