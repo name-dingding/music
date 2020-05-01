@@ -1,4 +1,4 @@
-# music
+# music (unfinished)
 
 ## Project setup
 ```
